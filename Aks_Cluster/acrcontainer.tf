@@ -1,4 +1,4 @@
-resource "azurerm_container_registry" "example" {
+/*resource "azurerm_container_registry" "example" {
   name                = "containerRegistry025"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -12,3 +12,4 @@ resource "azurerm_role_assignment" "example" {
   scope                            = azurerm_container_registry.example.id
   skip_service_principal_aad_check = true
 }
+*/
