@@ -13,24 +13,24 @@ provider "azurerm" {
 }
 
 
-data "azurerm_kubernetes_cluster" "example" {
-  name                = "example-aks1"
-  resource_group_name = "example-resources"
+data "azurerm_kubernetes_cluster" "WebappProject" {
+  name                = "WebappProject-Aks1"
+  resource_group_name = "WebappProject-resources"
 }
 provider "kubernetes" {
 
   # version = "<=2.0.1"
 
-  host                   = data.azurerm_kubernetes_cluster.example.kube_config[0].host
+  host                   = data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].host
 
-  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.example.kube_config[0].client_certificate)
+  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].client_certificate)
 
-  client_key             = base64decode(data.azurerm_kubernetes_cluster.example.kube_config[0].client_key)
+  client_key             = base64decode(data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].client_key)
 
-  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.example.kube_config[0].cluster_ca_certificate)
+  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].cluster_ca_certificate)
 
 }
-resource "kubernetes_secret" "example" {
+resource "kubernetes_secret" "WebappProject" {
   metadata {
     name = "docker-cfg"
   }
@@ -89,7 +89,7 @@ resource "kubernetes_deployment" "webapp" {
       spec {
         image_pull_secrets {
 
-          name = kubernetes_secret.example.metadata[0].name
+          name = kubernetes_secret.WebappProject.metadata[0].name
 
         }
         container {
