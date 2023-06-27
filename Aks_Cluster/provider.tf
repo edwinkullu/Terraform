@@ -5,13 +5,13 @@ terraform {
       version = "=3.0.0"
     }
   }
-  /*backend "azurerm" {
+  backend "azurerm" {
     resource_group_name = "AcrRegistryGroup"
     storage_account_name = "webappprojecttfstate"
     container_name = "terraformtfstate"
     key = "terraform.tfstate"    
     }
-    */
+  
 }
 
 # Configure the Microsoft Azure Provider
