@@ -30,9 +30,21 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].cluster_ca_certificate)
 
 }
+
+resource "kubernetes_namespace" "app_namespace" {
+
+  metadata {
+
+    name = "application"
+
+  }
+
+}
+
 resource "kubernetes_secret" "WebappProject" {
   metadata {
     name = "docker-cfg"
+    namespace = kubernetes_namespace.app_namespace.metadata[0].name
   }
 
   type = "kubernetes.io/dockerconfigjson"
@@ -52,15 +64,7 @@ resource "kubernetes_secret" "WebappProject" {
 }
 
 
-resource "kubernetes_namespace" "app_namespace" {
 
-  metadata {
-
-    name = "application"
-
-  }
-
-}
 resource "kubernetes_deployment" "webapp" {
   metadata {
     name = "webapp"
