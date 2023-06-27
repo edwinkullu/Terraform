@@ -56,7 +56,7 @@ resource "kubernetes_namespace" "app_namespace" {
 
   metadata {
 
-    name = "webappproject"
+    name = "application"
 
   }
 
@@ -64,7 +64,7 @@ resource "kubernetes_namespace" "app_namespace" {
 resource "kubernetes_deployment" "webapp" {
   metadata {
     name = "webapp"
-    namespace = "webappproject"
+    namespace = "application"
     labels = {
       app = "webapp"
     }
