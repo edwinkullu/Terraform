@@ -93,7 +93,7 @@ resource "kubernetes_deployment" "webapp" {
 
         }
         container {
-          image = "azureregistery02.azurecr.io/webapp:202306271032"
+          image = "azureregistery02.azurecr.io/webapp:202306271059"
           name  = "webapp"
           port {
             container_port = 80
