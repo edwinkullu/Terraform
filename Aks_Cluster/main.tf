@@ -15,7 +15,7 @@ resource "azurerm_kubernetes_cluster" "WebappProject" {
   }
 
   tags = {
-    Environment = "Development"
+    Environment = "Demoweb"
   }
 }
 
