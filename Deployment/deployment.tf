@@ -42,9 +42,9 @@ resource "kubernetes_secret" "WebappProject" {
       auths = {
         "azureregistery02.azurecr.io" = {
           "username" = "azureregistery02"
-          "password" = "pjNVEjJXVIcV4EdKKd0WaprI3zVt/KQDyq/ySy9phT+ACRCpMzW+"
+          "password" = "EHfLVC7BClMRAMinEQsuA7mFAMSdRtj7Pa2a4p3JMR+ACRDGHQwv"
           "email"    = "edwinkullu94@gmail.com"
-          "auth"     = base64encode("azureregistery02:pjNVEjJXVIcV4EdKKd0WaprI3zVt/KQDyq/ySy9phT+ACRCpMzW+")
+          "auth"     = base64encode("azureregistery02:EHfLVC7BClMRAMinEQsuA7mFAMSdRtj7Pa2a4p3JMR+ACRDGHQwv")
         }
       }
     })
