@@ -40,11 +40,11 @@ resource "kubernetes_secret" "WebappProject" {
   data = {
     ".dockerconfigjson" = jsonencode({
       auths = {
-        "containerregistry025.azurecr.io" = {
-          "username" = "containerRegistry025"
-          "password" = "4ItuVNCDq6my3NUBRY+mdRyogrROsf203yKmRiI44n+ACRDXWYUG"
+        "azureregistery02.azurecr.io" = {
+          "username" = "azureregistery02"
+          "password" = "pjNVEjJXVIcV4EdKKd0WaprI3zVt/KQDyq/ySy9phT+ACRCpMzW+"
           "email"    = "edwinkullu94@gmail.com"
-          "auth"     = base64encode("containerRegistry025:4ItuVNCDq6my3NUBRY+mdRyogrROsf203yKmRiI44n+ACRDXWYUG")
+          "auth"     = base64encode("azureregistery02:pjNVEjJXVIcV4EdKKd0WaprI3zVt/KQDyq/ySy9phT+ACRCpMzW+")
         }
       }
     })
@@ -93,7 +93,7 @@ resource "kubernetes_deployment" "webapp" {
 
         }
         container {
-          image = "containerregistry025.azurecr.io/webapp:20230612_124513"
+          image = "azureregistery02.azurecr.io/webapp:202306271032"
           name  = "webapp"
           port {
             container_port = 80
