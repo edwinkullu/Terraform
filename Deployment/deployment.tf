@@ -10,6 +10,7 @@ terraform {
       storage_account_name = "webterraformtfstate"
       container_name       = "terraformtfstate"
       key                  = "deploy_terraform.tfstate"
+      access_key           = "Pc2k/o1gTJ68k2PXTlnDy8t03e5YASNh1Biyo6btFggYgJ1LALRJ5HThjiwEXW9RLW7QRfSl92PQ+ASt22vDCA=="
   }
 }
 
