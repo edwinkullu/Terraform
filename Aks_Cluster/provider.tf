@@ -6,11 +6,11 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name = "AcrRegistryGroup"
-    storage_account_name = "webappprojecttfstate"
-    container_name = "terraformtfstate"
-    key = "terraform.tfstate"    
-    }
+      resource_group_name  = "tfstate"
+      storage_account_name = "webterraformtfstate"
+      container_name       = "terraformtfstate"
+      key                  = "aksterraform.tfstate"
+  }
   
 }
 
