@@ -68,7 +68,7 @@ resource "kubernetes_secret" "WebappProject" {
     })
   }
 }
-resource "kubernetes_config_map" "environmentvariable" {
+/*resource "kubernetes_config_map" "environmentvariable" {
 
   metadata {
 
@@ -85,7 +85,7 @@ resource "kubernetes_config_map" "environmentvariable" {
 
   }
 
-}
+}*/
 
 
 resource "kubernetes_deployment" "webapp" {
@@ -138,7 +138,7 @@ resource "kubernetes_deployment" "webapp" {
               memory = "50Mi"
             }
         }
-        env {
+        /*env {
 
             name = "ENVIRONMENT"
 
@@ -154,7 +154,7 @@ resource "kubernetes_deployment" "webapp" {
 
             }
 
-          }
+          }*/
     }
 }
 
