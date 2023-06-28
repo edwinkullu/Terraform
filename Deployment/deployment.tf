@@ -19,6 +19,8 @@ provider "azurerm" {
   features {}
 }
 
+provider "null" {}
+
 
 data "azurerm_kubernetes_cluster" "WebappProject" {
   name                = "WebappProject-Aks1"
@@ -87,6 +89,40 @@ resource "kubernetes_secret" "WebappProject" {
   }
 
 }*/
+
+resource "kubernetes_role" "pod-reader" {
+
+  metadata {
+
+    name      = "pod-reader"
+
+    namespace = kubernetes_namespace.namespace.metadata[0].name
+
+  }
+
+ 
+
+  rule {
+
+    api_groups = [""]
+
+    resources  = ["pods"]
+
+    verbs      = ["get", "list", "watch"]
+
+  }
+
+  rule {
+
+    api_groups = [""]
+
+    resources  = ["deployments"]
+
+    verbs      = ["get", "list", "watch"]
+
+  }
+
+}
 
 
 resource "kubernetes_deployment" "webapp" {
