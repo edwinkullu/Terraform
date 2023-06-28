@@ -13,3 +13,12 @@ resource "azurerm_role_assignment" "WebappProject" {
   skip_service_principal_aad_check = true
 }
 */
+data "azurerm_container_registry" "WebappProject" {
+  name                = "azureregistery02"
+  resource_group_name = "AcrRegistryGroup"
+  
+}
+
+output "login_server" {
+  value = data.azurerm_container_registry.WebappProject.login_server
+}
