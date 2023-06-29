@@ -7,7 +7,7 @@ $copydockerapifilepath="System.DefaultWorkingDirectory/_testweb-CI/drop/Webapp"
 #git config --global user.name "edwin kullu"
 #git config --global user.email "edwinkullu94@gmail.com"
 
-git clone --depth 1 https://github.com/edwinkullu/Webapp.git "$copydockerapifilepath"
+git clone --depth 1 https://github.com/edwinkullu/WebApp1.git "$copydockerapifilepath"
 
 $tag =" "
 $tag = "__WebAppImageTag__"
@@ -27,5 +27,7 @@ Write-Output "--------------------- PUSHING   IMAGE ---------------------"
 
 
 docker push $imagename
+
+docker images
 
 
