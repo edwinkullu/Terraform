@@ -30,4 +30,9 @@ docker push $imagename
 
 docker images
 
+Write-Output "=====================REMOVE IMAGE============================="
+docker rmi $imagename
+
+docker images
+
 
