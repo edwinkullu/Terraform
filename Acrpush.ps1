@@ -15,7 +15,7 @@ $registrybaseurl = "azureregistery02.azurecr.io"
 
 $imagename = "$registrybaseurl/webapp:$tag"
 #Copy-Item -Path "$copydockerapifilepath/Webapp/Webapp/Webapp/Dockerfile" -Destination $copydockerapifilepath/Webapp/Webapp
-Set-Location "$copydockerapifilepath/Webapp/"
+Set-Location "$copydockerapifilepath"
 
 Write-Output "--------------------- BUILDING IMAGE ---------------------"
 docker build --rm ./ -t $imagename
