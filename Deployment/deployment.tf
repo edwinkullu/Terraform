@@ -161,7 +161,7 @@ resource "kubernetes_deployment" "webapp" {
         container {
           name  = "webapp"
           image = "azureregistery02.azurecr.io/webapp:__WebAppImageTag__"
-          /* image_pull_policy = contains([__ProjectsToDeploy__], "webapp") == true ? "Always" : "IfNotPresent" */
+          image_pull_policy = contains([__ProjectsToDeploy__], "webapp") == true ? "Always" : "IfNotPresent" 
 
           port {
             container_port = 80
