@@ -1,3 +1,5 @@
+#This script is used for create Azure Kubernetes services cluster 
+
 resource "azurerm_kubernetes_cluster" "WebappProject" {
   name                = "WebappProject-Aks1"
   location            = azurerm_resource_group.WebappProject.location

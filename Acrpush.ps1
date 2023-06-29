@@ -7,7 +7,7 @@ $copydockerapifilepath="System.DefaultWorkingDirectory/_testweb-CI/drop/Webapp"
 #git config --global user.name "edwin kullu"
 #git config --global user.email "edwinkullu94@gmail.com"
 
-git clone --depth 1 https://github.com/edwinkullu/WebApp1.git "$copydockerapifilepath"
+git clone --depth 1 https://github.com/edwinkullu/Webapp.git "$copydockerapifilepath"
 
 $tag =" "
 $tag = "__WebAppImageTag__"
@@ -15,7 +15,7 @@ $registrybaseurl = "azureregistery02.azurecr.io"
 
 $imagename = "$registrybaseurl/webapp:$tag"
 #Copy-Item -Path "$copydockerapifilepath/Webapp/Webapp/Webapp/Dockerfile" -Destination $copydockerapifilepath/Webapp/Webapp
-Set-Location "$copydockerapifilepath"
+Set-Location "$copydockerapifilepath/Webapp/"
 
 Write-Output "--------------------- BUILDING IMAGE ---------------------"
 docker build --rm ./ -t $imagename

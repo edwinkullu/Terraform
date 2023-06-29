@@ -5,6 +5,8 @@ terraform {
       version = "=3.0.0"
     }
   }
+
+  #Script used for store backent tfstate file (terraform)
   backend "azurerm" {
       resource_group_name  = "tfstate"
       storage_account_name = "webterraformtfstate"
@@ -39,7 +41,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.WebappProject.kube_config[0].cluster_ca_certificate)
 
 }
-
+#To create namespace resource
 resource "kubernetes_namespace" "app_namespace" {
 
   metadata {
@@ -49,7 +51,7 @@ resource "kubernetes_namespace" "app_namespace" {
   }
 
 }
-
+#authentication for container
 resource "kubernetes_secret" "WebappProject" {
   metadata {
     name = "docker-cfg"
@@ -124,7 +126,7 @@ resource "kubernetes_role" "pod-reader" {
 
 }
 
-
+#container create and Deployment
 resource "kubernetes_deployment" "webapp" {
   metadata {
     name = "webapp"

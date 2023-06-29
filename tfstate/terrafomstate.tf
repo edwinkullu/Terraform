@@ -1,3 +1,5 @@
+# This Terraform script is used for create a Azure storge in azure portal and also used to store terraform tfstate file
+
 terraform {
   required_providers {
     azurerm = {
