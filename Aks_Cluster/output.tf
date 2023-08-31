@@ -8,3 +8,7 @@ output "kube_config" {
 
   sensitive = true
 }
+
+output "login_server" {
+  value = data.azurerm_container_registry.WebappProject.login_server
+}
