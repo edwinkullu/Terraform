@@ -23,11 +23,10 @@ docker build --rm ./ -t $imagename
 
 #Remove-Item -Path "$copydockerapifilepath/Terraform/Dockerfile"
 Write-Output "--------------------- PUSHING   IMAGE ---------------------"
-
-
-
 docker push $imagename
 
-docker images
+Write-Output "=====================REMOVE IMAGE============================="
+docker rmi $imagename
+
 
 
